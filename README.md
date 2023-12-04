@@ -2,7 +2,9 @@
 
 ![Ci workflow](https://github.com/kbrault/c_networking/actions/workflows/makefile.yml/badge.svg)
 
-1) [basic_http_server.c](https://github.com/kbrault/c_networking/blob/master/src/basic_http_server.c)
+<details>
+  <summary>basic_http_server.c</summary>
+    
 ```mermaid
 sequenceDiagram
     participant Server
@@ -22,3 +24,4 @@ sequenceDiagram
         Server ->> Server: Close client socket (close())
     end
 ```
+</details>
