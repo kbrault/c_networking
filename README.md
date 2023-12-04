@@ -1,6 +1,6 @@
 # c_networking
 
-![Ci workflow](https://github.com/kbrault/c_networking/actions/workflows/makefile.yml/badge.svg)
+[![makefile CI](https://github.com/kbrault/c_networking/actions/workflows/makefile.yml/badge.svg)](https://github.com/kbrault/c_networking/actions/workflows/makefile.yml)
 
 <details>
   <summary>basic_http_server.c</summary>
