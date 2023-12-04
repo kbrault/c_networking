@@ -75,7 +75,7 @@ void handle_request(int client_socket) {
 }
 
 int main(){
-    int server_socket, client_socket;
+    int server_socket;
     struct sockaddr_in server_addr, client_addr;
     socklen_t addr_len = sizeof(client_addr);
 
@@ -170,6 +170,7 @@ int main(){
         //     if successful.
         //   - Returns -1 if an error occurs during the connection acceptance 
         //     process.
+        int client_socket;
         if ((client_socket = accept(server_socket, 
                                     (struct sockaddr *)&client_addr, 
                                     &addr_len)) < 0) {
