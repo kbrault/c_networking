@@ -1,5 +1,7 @@
 # c_networking
 
+![Ci workflow](https://github.com/kbrault/c_networking/actions/workflows/makefile.yml/badge.svg)
+
 1) [basic_http_server.c](https://github.com/kbrault/c_networking/blob/master/src/basic_http_server.c)
 ```mermaid
 sequenceDiagram
