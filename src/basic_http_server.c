@@ -1,14 +1,25 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-#include <sys/socket.h>
-#include <unistd.h> 
-#include <arpa/inet.h>
-
-#define PORT 8888
-#define MAX_CONNECTIONS 10
-
 /*
+    This C program sets up a simple HTTP server using sockets to handle 
+    incoming client requests.
+    It performs the following main steps:
+
+    1. Create a socket (socket descriptor) for communication (socket()).
+    2. Associate the socket with a specific address and port number (bind()).
+    3. Mark the socket as passive and ready to accept incoming connections 
+       (listen()).
+    4. Accept incoming connections and create a new socket for bidirectional 
+       data exchange with the client (accept()).
+    5. Handle the incoming HTTP request by sending a basic HTTP response 
+       (handle_request()).
+    6. Close the client socket after handling the request (close()).
+
+    The 'handle_request()' function generates an HTTP response with a simple 
+    'Hello, world!' message.
+    To start the server, execute the program, which will run the server 
+    on port 8888.
+    Incoming HTTP requests trigger the 'handle_request()' function to send 
+    the response.
+
      +----------------------------------+
      |             socket()             |
      | Create a communication endpoint  |
@@ -49,7 +60,20 @@
      |            close()               |
      |     Close the socket             |
      +----------------------------------+
+
+    Note: This code serves as a basic example and may lack robustness or 
+    additional features for production use.
 */
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <sys/socket.h>
+#include <unistd.h> 
+#include <arpa/inet.h>
+
+#define PORT 8888
+#define MAX_CONNECTIONS 10
 
 // Handle the incoming HTTP request from the client by sending a simple 
 // HTTP response.
@@ -64,7 +88,8 @@ void handle_request(int client_socket) {
     // Send an HTTP response to the client socket.
     // Parameters:
     //   - client_socket: the socket descriptor for the client connection.
-    //   - response: a pointer to the buffer containing the HTTP response message.
+    //   - response: a pointer to the buffer containing the HTTP response 
+    //               message.
     //   - strlen(response): the length of the response message to send.
     write(client_socket, response, strlen(response));
 
