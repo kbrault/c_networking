@@ -1,6 +1,7 @@
 # c_networking
 
 [![makefile CI](https://github.com/kbrault/c_networking/actions/workflows/makefile.yml/badge.svg)](https://github.com/kbrault/c_networking/actions/workflows/makefile.yml)
+[![cppcheck](https://github.com/kbrault/c_networking/actions/workflows/cppcheck.yml/badge.svg)](https://github.com/kbrault/c_networking/actions/workflows/cppcheck.yml)
 
 <details>
   <summary>basic_http_server.c</summary>
