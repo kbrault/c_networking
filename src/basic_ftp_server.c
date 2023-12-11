@@ -89,15 +89,15 @@ int main() {
         else if (strncmp(buffer, "CWD", 3) == 0) {
             // Extract the directory path from the command
             char directory[1024];
-            sscanf(buffer, "CWD %s", directory);
-
-            // Attempt to change the directory
-            if (chdir(directory) == 0) {
-                const char *cwd_ok = "250 Directory successfully changed.\n";
-                send(new_socket, cwd_ok, strlen(cwd_ok), 0);
-            } else {
-                const char *cwd_error = "550 Failed to change directory.\n";
-                send(new_socket, cwd_error, strlen(cwd_error), 0);
+            if (sscanf(buffer, "CWD %1023s", directory) != 1) {
+                // Attempt to change the directory
+                if (chdir(directory) == 0) {
+                    const char *cwd_ok = "250 Directory successfully changed.\n";
+                    send(new_socket, cwd_ok, strlen(cwd_ok), 0);
+                } else {
+                    const char *cwd_error = "550 Failed to change directory.\n";
+                    send(new_socket, cwd_error, strlen(cwd_error), 0);
+                }
             }
         }
 
