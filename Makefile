@@ -17,7 +17,7 @@ SRC_FILES = $(wildcard $(SRC_DIR)/*.c)
 OBJ_FILES = $(patsubst $(SRC_DIR)/%.c,$(TARGET_DIR)/%.o,$(SRC_FILES))
 
 # Executables
-EXECUTABLES = basic_http_server multithread_http_server
+EXECUTABLES = basic_http_server multithread_http_server basic_ftp_server
 
 # Default rule: build all executables
 all: $(EXECUTABLES)
@@ -25,6 +25,7 @@ all: $(EXECUTABLES)
 # Rule to build each executable
 basic_http_server: $(TARGET_DIR)/basic_http_server
 multithread_http_server: $(TARGET_DIR)/multithread_http_server
+basic_ftp_server: $(TARGET_DIR)/basic_ftp_server
 
 # Rule to build each executable from its object file
 $(TARGET_DIR)/%: $(OBJ_FILES)
